@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.thinkbycode.movie.stub";
+
+message Movie {
+	int32 movieId = 1;
+	string title = 2;
+	string director = 3;
+	double rating = 4;
+	repeated string actors = 5;
+}
+
+message MovieRequest {
+	int32 movieId = 1;
+	string title = 2;
+	string director = 3;
+	double rating = 4;
+	repeated string actors = 5;
+}
+
+message MovieResponse {
+	repeated Movie movie = 1;
+}
+
+service MovieService {
+	rpc GetMovie(MovieRequest) returns (MovieResponse){};
+}
